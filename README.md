@@ -57,9 +57,7 @@ MIT
 
 *Systems engineer. I build automation infrastructure, AI pipelines, and local-first tools.*
 
-soumyajit@zelkyr.dev
-
-https://github.com/debuggerdragon311
+soumyajit@zelkyr.dev | https://github.com/debuggerdragon311
 
 **Need a custom automation pipeline, AI integration, or data extraction system built?**
 Reach out at [soumyajit@zelkyr.dev](mailto:soumyajit@zelkyr.dev)
