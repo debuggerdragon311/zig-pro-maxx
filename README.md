@@ -27,7 +27,10 @@ zig-pro-maxx/
 |    ├── std-io.md
 |    └── testing.md
 └── examples/
-     └── hello_from_cli_args.zig
+     └── hello_from_cli_args.md
+     .
+     .
+     .
 ```
 
 ## What it enforces

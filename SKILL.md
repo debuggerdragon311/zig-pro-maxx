@@ -13,7 +13,7 @@ description: >
 metadata:
   trigger: Writing zig code files, editing drafts for zig, reviewing content for Zig.
   author: Soumyajit Bala (https://github.com/debuggerdragon311)
-  version: v0.1.9-beta2
+  version: v0.1.9-beta3
 ---
 
 # ZIG-PRO-MAXX — 0.16.0 ONLY, NO EXCEPTIONS
@@ -49,13 +49,18 @@ pre-0.16 API — stop and rewrite it.
 
 | Example file | When to read |
 |---|---|
-| `examples/hello_from_cli_args.zig` | **Any `args`-related code** |
-| `examples/sample_0_16.zig` | **Any time you want an overview of basics** |
-| `examples/fibo.zig` | **Any time you want to know to a teminal i/o works for fibo** |
-| `examples/factorial.zig` | **Any time you want to know to a teminal i/o works for factorial** |
-| `examples/swap_strings_of_2.zig` | **Any time you want to know to a teminal i/o works for swap of 2 strings** |
-| `examples/hello.zig` | **Any time you want to know to a teminal i/o works for a simple greeting program** |
-| `examples/adder.zig` | **Any time you want to know to a teminal i/o works for a simple program to add 2 numbers** |
+| `examples/hello_from_cli_args.md` | **Any `args`-related code** |
+| `examples/sample_0_16.md` | **Any time you want an overview of basics** |
+| `examples/fibo.md` | **Any time you want to know to a teminal i/o works for fibo** |
+| `examples/factorial.md` | **Any time you want to know to a teminal i/o works for factorial** |
+| `examples/swap_strings_of_2.md` | **Any time you want to know to a teminal i/o works for swap of 2 strings** |
+| `examples/hello.md` | **Any time you want to know to a teminal i/o works for a simple greeting program** |
+| `examples/adder.md` | **Any time you want to know to a teminal i/o works for a simple program to add 2 numbers** |
+| `examples/isprime.md` | **Any time you want to know to a teminal i/o works for a simple program to check prime numbers** |
+
+> To check actual code files written in zig in .zig files (for more references) --
+> examples/actual_code_files/**
+> Same files just in .zig extension
 
 ---
 
