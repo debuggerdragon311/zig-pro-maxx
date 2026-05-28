@@ -13,7 +13,7 @@ description: >
 metadata:
   trigger: Writing zig code files, editing drafts for zig, reviewing content for Zig.
   author: Soumyajit Bala (https://github.com/debuggerdragon311)
-  version: v0.1.9-beta1
+  version: v0.1.9-beta2
 ---
 
 # ZIG-PRO-MAXX — 0.16.0 ONLY, NO EXCEPTIONS
@@ -55,6 +55,7 @@ pre-0.16 API — stop and rewrite it.
 | `examples/factorial.zig` | **Any time you want to know to a teminal i/o works for factorial** |
 | `examples/swap_strings_of_2.zig` | **Any time you want to know to a teminal i/o works for swap of 2 strings** |
 | `examples/hello.zig` | **Any time you want to know to a teminal i/o works for a simple greeting program** |
+| `examples/adder.zig` | **Any time you want to know to a teminal i/o works for a simple program to add 2 numbers** |
 
 ---
 
