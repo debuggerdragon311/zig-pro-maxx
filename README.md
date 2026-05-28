@@ -1,7 +1,12 @@
-# zig-pro-maxx
+<p align="center">
+  <img src="assets/banner.svg" alt="zig-pro-maxx banner" width="100%">
+</p>
+
+<div align=center>
 
 > Agent skill that enforces strict Zig 0.16.0 API compliance.
 > Drop it in any repo; any agentskills-compatible agent will load it automatically.
+</div>
 
 ---
 
