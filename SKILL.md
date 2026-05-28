@@ -13,6 +13,7 @@ description: >
 metadata:
   trigger: Writing zig code files, editing drafts for zig, reviewing content for Zig.
   author: Soumyajit Bala (https://github.com/debuggerdragon311)
+  version: v0.1.9-beta1
 ---
 
 # ZIG-PRO-MAXX — 0.16.0 ONLY, NO EXCEPTIONS
@@ -28,6 +29,7 @@ pre-0.16 API — stop and rewrite it.
 
 | Reference file | When to read |
 |---|---|
+| `references/code-discipline.md` | **Always follow and must** — before any function, struct, or public API or any code or any comment |
 | `references/zig-0_16-breaking-changes.md` | **Always** — renamed/removed APIs |
 | `references/std-debug.md` | Any `print`, `assert`, or `panic` |
 | `references/std-io.md` | Any file I/O, stdout, stderr, networking |
@@ -37,19 +39,22 @@ pre-0.16 API — stop and rewrite it.
 | `references/build-system.md` | Any edit to `build.zig` |
 | `references/testing.md` | Any test block |
 | `references/common-mistakes.md` | **Always** — final review before output |
-| `references/code-discipline.md` | **Always** — before any function, struct, or public API |
 | `references/simd.md` | Any `@Vector`, SIMD, or vectorised data operation |
 | `references/c-interop.md` | Any `@cImport`, `extern fn`, or FFI boundary |
 | `references/build-system.md` | Any edit to `build.zig` or cross-compilation |
 | `references/error-sets.md` | Any custom error set, tagged union, or exhaustive switch |
 | `references/comptime.md` | Any generic function, `@typeInfo`, or comptime interface |
 
-## Check these examples before you write a single line
+## Check these examples before you write a single line (Don't mention it on users end, its for grounding with actual code for more better understanding)
 
 | Example file | When to read |
 |---|---|
 | `examples/hello_from_cli_args.zig` | **Any `args`-related code** |
 | `examples/sample_0_16.zig` | **Any time you want an overview of basics** |
+| `examples/fibo.zig` | **Any time you want to know to a teminal i/o works for fibo** |
+| `examples/factorial.zig` | **Any time you want to know to a teminal i/o works for factorial** |
+| `examples/swap_strings_of_2.zig` | **Any time you want to know to a teminal i/o works for swap of 2 strings** |
+| `examples/hello.zig` | **Any time you want to know to a teminal i/o works for a simple greeting program** |
 
 ---
 
@@ -76,6 +81,9 @@ pre-0.16 API — stop and rewrite it.
 | `std.debug.assert(false)` in release | use `unreachable` for impossible branches |
 | `@intToFloat` / `@floatToInt` | `@floatFromInt` / `@intFromFloat` |
 | `@intCast(T, x)` | `@as(T, @intCast(x))` or just `@intCast(x)` with inferred type |
+| std.mem.trimLeft    | std.mem.trimStart  |
+| std.mem.trimRight   | std.mem.trimEnd    |
+
 
 ---
 
@@ -308,3 +316,4 @@ test "description of what is being verified" {
 7. No allocations inside hot loops — use `bufPrint` with a stack buffer
 8. ArrayList: always pass the allocator; StringHashMap: ensure key lifetime
    exceeds the map entry's lifetime
+9. Try to follow only ascii cheracters as much as possible 

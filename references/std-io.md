@@ -21,6 +21,68 @@ For **lesson files**, use `std.debug.print`. It does not need an `Io` instance.
 
 ---
 
+
+## `std.Io.Reader` — Key methods (verified from Reader.zig)
+
+### Getting a reader
+```zig
+var in_buf: [4096]u8 = undefined;
+var file_reader = std.Io.File.stdin().reader(io, &in_buf);
+const r = &file_reader.interface; // *std.Io.Reader
+```
+
+### Read a line (most common use case)
+```zig
+// Returns slice into reader's buffer EXCLUDING the delimiter.
+// Delimiter stays buffered but is not consumed.
+// Errors: ReadFailed | EndOfStream | StreamTooLong
+const line_with_cr = try r.takeDelimiterExclusive('\n');
+const line = std.mem.trimRight(u8, line_with_cr, "\r"); // handle Windows \r\n
+
+// Alternative — includes the delimiter in the returned slice:
+const line_incl = try r.takeDelimiterInclusive('\n');
+
+// Alternative — returns ?[]u8; null at EOF; DOES consume the delimiter:
+const maybe_line = try r.takeDelimiter('\n'); // returns error{ReadFailed, StreamTooLong}!?[]u8
+```
+**Critical:** `takeDelimiterExclusive`/`Inclusive` return a slice into the reader's
+internal buffer. Copy it before the next read if you need it to survive longer.
+
+### Read into a caller-provided buffer
+```zig
+// Reads UP TO buffer.len bytes; returns count (0 = end of stream):
+const n = try r.readSliceShort(&my_buf); // ShortError!usize
+
+// Reads EXACTLY buffer.len bytes; EndOfStream if fewer available:
+try r.readSliceAll(&my_buf); // Error!void
+```
+
+### Read all remaining bytes (heap-allocated)
+```zig
+const data = try r.allocRemaining(allocator, .unlimited); // LimitedAllocError![]u8
+defer allocator.free(data);
+```
+
+### Error types
+```zig
+// DelimiterError (takeDelimiterExclusive / Inclusive):
+error{ ReadFailed, EndOfStream, StreamTooLong }
+// EndOfStream  — stream ended with no data at all (e.g. Ctrl+D with no input)
+// StreamTooLong — line longer than the reader's buffer capacity
+
+// ShortError (readSliceShort):
+error{ ReadFailed }
+
+// Error (readSliceAll):
+error{ ReadFailed, EndOfStream }
+```
+
+### Methods that do NOT exist (common wrong guesses)
+- ~~`readAll`~~ — does not exist
+- ~~`readUntilDelimiter`~~ — does not exist
+- ~~`readUntilDelimiterOrEof`~~ — pre-0.16 API, gone
+
+
 ## `std.Io.Writer`
 
 The writer interface. A vtable struct, not a generic type.
